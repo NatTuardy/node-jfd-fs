@@ -4,7 +4,7 @@ const schema = new Schema({
     name: {type: String},
     email: {type: String, required:true, unique: true},
     password: {type: String},
-    completedMeeting: Number,
+    completedMeetings: Number,
     image: String,
     profession: {type: Schema.Types.ObjectId, ref: 'Profession'},
     qualities: {type: Schema.Types.ObjectId, ref: 'Quality'},
