@@ -9,6 +9,7 @@ try {
     const token = req.headers.authorization.split(' ')[1]
     console.log('token', token)
     if(!token){
+        console.log("token non")
        return res.status(401).json({message: 'Unauthorized'})
     }
     const data = tokenService.validateAccess(token)
@@ -16,6 +17,7 @@ try {
     req.user = data
     next()
 } catch (error) {
+    console.log('i m error', error)
     res.status(401).json({message: 'Unauthorized'})
 }
 }

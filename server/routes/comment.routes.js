@@ -52,5 +52,5 @@ router
 module.exports = router
 
 
-answer = 42
-console.log(global.answer)
+// answer = 42
+// console.log(global.answer)

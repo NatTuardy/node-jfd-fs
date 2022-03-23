@@ -10,6 +10,7 @@ router.post("/signUp", [
   check("email", "Некорректный email").isEmail(),
   check("password", "Минимальная длина пароля 8 символов").isLength({ min: 8 }),
   async (req, res) => {
+    console.log('req', req.body.qualities, typeof req.body.qualities)
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
@@ -45,6 +46,7 @@ router.post("/signUp", [
 
       res.status(201).send({ ...tokens, userId: newUser._id });
     } catch (error) {
+      console.log('err---', error)
       res.status(500).json({
         message: "На сервере произошла ошибка1. Попробуйте позже",
         code: 500,
